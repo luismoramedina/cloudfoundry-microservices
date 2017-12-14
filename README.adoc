@@ -1,0 +1,16 @@
+= Cloudfoundry microservices
+
+Persons and accounts microservices. Persons calls accounts with resttemplate
+
+This sample uses eureka to resolve services
+
+== Local installation
+
+This can be executed in local environment, run eureka and run 2 micros,
+then open your browser on localhost:8080
+
+See ./build.sh
+
+== Cloud foundry Installation
+
+See ./cfinstall.sh

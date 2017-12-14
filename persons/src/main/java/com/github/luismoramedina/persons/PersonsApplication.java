@@ -39,6 +39,7 @@ public class PersonsApplication {
 
 	@GetMapping("/")
 	public Person person() {
+		System.out.println("person");
 		Person person = new Person();
 		person.setName("Luis");
 		URI url = UriComponentsBuilder.fromUriString(accountsUrl).build().toUri();
