@@ -1,0 +1,32 @@
+---
+# this manifest deploys two applications
+# apps are in micropersons and microaccounts directories
+applications:
+- name: micropersons
+  memory: 1G
+  instances: 1
+  host: micropersons
+  domain: cfapps.io
+  path: ./persons/target/persons-0.0.1-SNAPSHOT.jar
+  buildpack: java_buildpack
+  services:
+  - eureka
+  - config-service
+  env:
+    SPRING_APPLICATION_NAME: persons
+    SPRING_PROFILES_ACTIVE: default
+    SPRING_CLOUD_CONFIG_LABEL: master
+- name: microaccounts
+  memory: 1G
+  instances: 1
+  host: microaccounts
+  domain: cfapps.io
+  path: ./accounts/target/accounts-0.0.1-SNAPSHOT.jar
+  buildpack: java_buildpack
+  services:
+  - eureka
+  - config-service
+  env:
+    SPRING_APPLICATION_NAME: accounts
+    SPRING_PROFILES_ACTIVE: default
+    SPRING_CLOUD_CONFIG_LABEL: master
